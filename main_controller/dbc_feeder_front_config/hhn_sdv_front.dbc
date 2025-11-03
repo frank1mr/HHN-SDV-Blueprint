@@ -1,0 +1,68 @@
+VERSION ""
+
+NS_ :
+NS_DESC_
+CM_
+BA_DEF_
+BA_
+VAL_
+CAT_DEF_
+CAT_
+FILTER
+BA_DEF_DEF_
+EV_DATA_
+ENVVAR_DATA_
+SGTYPE_
+SGTYPE_VAL_
+BA_DEF_SGTYPE_
+BA_SGTYPE_
+SIG_TYPE_REF_
+VAL_TABLE_
+SIG_GROUP_
+SIG_VALTYPE_
+SIGTYPE_VALTYPE_
+BO_TX_BU_
+BA_DEF_REL_
+BA_REL_
+BA_DEF_DEF_REL_
+BU_SG_REL_
+BU_EV_REL_
+BU_BO_REL_
+SG_MUL_VAL_
+
+BS_:
+
+BU_: FrontLightLeft FrontLightRight DriverSideDoor PassengerSideDoor AmbientLights ZoneControllerFront
+
+BO_ 256 FrontLights: 6 ZoneController
+ SG_ LightsOn : 0|1@1+ (1,0) [0|1] "" FrontLightLeft,FrontLightRight
+ SG_ LowBeamOn : 8|1@1+ (1,0) [0|1] "" FrontLightLeft,FrontLightRight
+ SG_ HighBeamOn : 16|1@1+ (1,0) [0|1] "" FrontLightLeft,FrontLightRight
+ SG_ DirectionIndicatorRightOn : 24|1@1+ (1,0) [0|1] "" FrontLightRight
+ SG_ DirectionIndicatorLeftOn : 32|1@1+ (1,0) [0|1] "" FrontLightLeft
+ SG_ HazardOn : 40|1@1+ (1,0) [0|1] "" FrontLightLeft,FrontLightRight
+ 
+ BO_ 128 Lock: 2 KeylessEntry
+ SG_ VehicleDoorLocked : 0|1@1+ (1,0) [0|1] "" ZoneControllerRear
+
+BO_ 80 DriverSideDoorSensor: 1 DriverSideDoor
+ SG_ DriverSideDoorOpen : 0|1@1+ (1,0) [0|1] "" PassengerSideDoor,ZoneControllerFront 
+
+BO_ 96 PassengerSideDoorSensor: 1 PassengerSideDoor
+ SG_ PassengerSideDoorOpen : 0|1@1+ (1,0) [0|1] "" DriverSideDoor,ZoneControllerFront
+ 
+
+VAL_ 256 LightsOn 0 "OFF" 1 "ON";
+VAL_ 256 LowBeamOn 0 "OFF" 1 "ON";
+VAL_ 256 HighBeamOn 0 "OFF" 1 "ON";
+VAL_ 256 DirectionIndicatorRightOn 0 "OFF" 1 "ON";
+VAL_ 256 DirectionIndicatorLeftOn 0 "OFF" 1 "ON";
+VAL_ 256 HazardOn 0 "OFF" 1 "ON";
+
+VAL_ 128 VehicleDoorLocked 0 "UNLOCKED" 1 "LOCKED";
+
+VAL_ 80 DriverSideDoorOpen 0 "CLOSED" 1 "OPEN";
+
+VAL_ 96 PassengerSideDoorOpen 0 "CLOSED" 1 "OPEN";
+
+

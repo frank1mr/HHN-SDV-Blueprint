@@ -1,0 +1,12 @@
+{
+  "LightsOn": 0,
+  "DirectionIndicatorRightOn": 0,
+  "DirectionIndicatorLeftOn": 0,
+  "HazardOn": 0,   
+  "BackupLightOn": 0,
+  "BreakLightOn": 0,
+  "AmbientLightsOn": 0,
+  "PdcActive": 0,
+  "PdcDistance": 0
+}
+

@@ -1,0 +1,65 @@
+VERSION ""
+
+NS_ :
+NS_DESC_
+CM_
+BA_DEF_
+BA_
+VAL_
+CAT_DEF_
+CAT_
+FILTER
+BA_DEF_DEF_
+EV_DATA_
+ENVVAR_DATA_
+SGTYPE_
+SGTYPE_VAL_
+BA_DEF_SGTYPE_
+BA_SGTYPE_
+SIG_TYPE_REF_
+VAL_TABLE_
+SIG_GROUP_
+SIG_VALTYPE_
+SIGTYPE_VALTYPE_
+BO_TX_BU_
+BA_DEF_REL_
+BA_REL_
+BA_DEF_DEF_REL_
+BU_SG_REL_
+BU_EV_REL_
+BU_BO_REL_
+SG_MUL_VAL_
+
+BS_:
+
+BU_: BackLightLeft BackLightRight PDC KeylessEntry ZoneControllerRear
+
+BO_ 768 AmbientLights: 6 ZoneController
+ SG_ AmbientLightsOn : 0|1@1+ (1,0) [0|1] "" AmbientLights
+
+BO_ 512 BackLights: 6 ZoneControllerRear
+ SG_ LightsOn : 0|1@1+ (1,0) [0|1] "" BackLightLeft,BackLightRight
+ SG_ BackupLightOn : 8|1@1+ (1,0) [0|1] "" BackLightLeft,BackLightRight
+ SG_ BreakLightOn : 16|1@1+ (1,0) [0|1] "" BackLightLeft,BackLightRight
+ SG_ DirectionIndicatorRightOn : 24|1@1+ (1,0) [0|1] "" BackLightRight
+ SG_ DirectionIndicatorLeftOn : 32|1@1+ (1,0) [0|1] "" BackLightLeft
+ SG_ HazardOn : 40|1@1+ (1,0) [0|1] "" BackLightLeft,BackLightRight
+
+BO_ 113 PDCSensor: 2 PDC
+ SG_ PdcDistance : 0|8@1+ (1,0) [0|255] "" ZoneControllerRear
+
+BO_ 112 PDCEnable: 2 ZoneControllerRear
+ SG_ PdcActive : 0|1@1+ (1,0) [0|1] "" PDC
+
+
+VAL_ 768 AmbientLightsOn 0 "OFF" 1 "ON";
+
+VAL_ 512 LightsOn 0 "OFF" 1 "ON";
+VAL_ 512 BackupLightOn 0 "OFF" 1 "ON";
+VAL_ 512 BreakLightOn 0 "OFF" 1 "ON";
+VAL_ 512 DirectionIndicatorRightOn 0 "OFF" 1 "ON";
+VAL_ 512 DirectionIndicatorLeftOn 0 "OFF" 1 "ON";
+VAL_ 512 HazardOn 0 "OFF" 1 "ON";
+
+VAL_ 112 PdcActive 0 "INACTIVE" 1 "ACTIVE";
+

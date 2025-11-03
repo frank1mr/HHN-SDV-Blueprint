@@ -1,0 +1,463 @@
+{
+    "Vehicle": {
+        "children": {
+            "ADAS": {
+                "children": {
+                    "PDC": {
+                        "children": {
+                            "Rear": {
+                                "children": {
+                                    "Distance": {
+                                        "datatype": "double",
+                                        "description": "nan",
+                                        "type": "sensor",
+                                        "unit": "cm"
+                                    },
+                                    "IsActive": {
+                                        "datatype": "boolean",
+                                        "description": "nan",
+                                        "type": "actuator"
+                                    }
+                                },
+                                "description": "nan",
+                                "type": "branch"
+                            }
+                        },
+                        "description": "Park Distance Control ",
+                        "type": "branch"
+                    }
+                },
+                "description": "All Advanced Driver Assist Systems data.",
+                "type": "branch"
+            },
+            "Body": {
+                "description": "All body components.",
+                "type": "branch",
+                "children": {
+                    "BodyType": {
+                        "datatype": "string",
+                        "description": "Body type code as defined by ISO 3779.",
+                        "type": "attribute"
+                    },
+                    "Lights": {
+                        "children": {
+                            "Backup": {
+                                "children": {
+                                    "IsOn": {
+                                        "datatype": "boolean",
+                                        "type": "actuator",                                        
+                                        "description": "Indicates if light is on or off. True = On. False = Off."
+                                    }
+                                },
+                                "description": "Backup lights.",
+                                "type": "branch"
+                            },
+                            "Beam": {
+                                "children": {
+                                    "High": {
+                                        "children": {
+                                            "IsOn": {
+                                                "datatype": "boolean",
+                                                "dbc2vss": {
+                                                    "interval_ms": 100,
+                                                    "signal": "HighBeamOn",
+                                                    "transform": {
+                                                      "mapping": [
+                                                        {
+                                                          "from": "OFF",
+                                                          "to": false
+                                                        },
+                                                        {
+                                                          "from": "ON",
+                                                          "to": true
+                                                        }
+                                                        ]
+                                                    }
+                                                },
+                                                "description": "Indicates if light is on or off. True = On. False = Off.",
+                                                "type": "actuator",
+                                                "vss2dbc": {
+                                                    "signal": "HighBeamOn",
+                                                    "transform": {
+                                                      "mapping": [
+                                                        {
+                                                          "from": 1,
+                                                          "to": "ON"
+                                                        },
+                                                        {
+                                                          "from": 0,
+                                                          "to": "OFF"
+                                                        }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "description": "Beam lights.",
+                                        "type": "branch"
+                                    },
+                                    "Low": {
+                                        "children": {
+                                            "IsOn": {
+                                                "datatype": "boolean",
+                                                "dbc2vss": {
+                                                    "interval_ms": 100,
+                                                    "signal": "LowBeamOn",
+                                                    "transform": {
+                                                      "mapping": [
+                                                        {
+                                                          "from": "OFF",
+                                                          "to": false
+                                                        },
+                                                        {
+                                                          "from": "ON",
+                                                          "to": true
+                                                        }
+                                                        ]
+                                                    }
+                                                },
+                                                "description": "Indicates if light is on or off. True = On. False = Off.",
+                                                "type": "actuator",
+                                                "vss2dbc": {
+                                                    "signal": "LowBeamOn",
+                                                    "transform": {
+                                                      "mapping": [
+                                                        {
+                                                          "from": true,
+                                                          "to": "ON"
+                                                        },
+                                                        {
+                                                          "from": false,
+                                                          "to": "OFF"
+                                                        }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "description": "Beam lights.",
+                                        "type": "branch"
+                                    }
+                                },
+                                "description": "Beam lights.",
+                                "type": "branch"
+                            },
+                            "Brake": {
+                                "children": {
+                                    "IsActive": {
+                                        "allowed": [
+                                            "INACTIVE",
+                                            "ACTIVE",
+                                            "ADAPTIVE"
+                                        ],
+                                        "datatype": "string",
+                                        "description": "Indicates if break-light is active. INACTIVE means lights are off. ACTIVE means lights are on. ADAPTIVE means that break-light is indicating emergency-breaking.",
+                                        "type": "actuator"
+                                    }
+                                },
+                                "description": "Brake lights.",
+                                "type": "branch"
+                            },
+                            "DirectionIndicator": {
+                                "children": {
+                                    "Left": {
+                                        "children": {
+                                            "IsSignaling": {
+                                                "datatype": "boolean",
+                                                "dbc2vss": {
+                                                    "interval_ms": 100,
+                                                    "signal": "DirectionIndicatorLeftOn",
+                                                    "transform": {
+                                                      "mapping": [
+                                                        {
+                                                          "from": "OFF",
+                                                          "to": false
+                                                        },
+                                                        {
+                                                          "from": "ON",
+                                                          "to": true
+                                                        }
+                                                        ]                                     
+                                                    }
+                                                },
+                                                "description": "Indicates if light is signaling or off. True = signaling. False = Off.",
+                                                "type": "actuator",
+                                                "vss2dbc": {
+                                                    "signal": "DirectionIndicatorLeftOn",
+                                                    "transform": {
+                                                      "mapping": [
+                                                        {
+                                                          "from": true,
+                                                          "to": "ON"
+                                                        },
+                                                        {
+                                                          "from": false,
+                                                          "to": "OFF"
+                                                        }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "description": "Indicator lights.",
+                                        "type": "branch"
+                                    },
+                                    "Right": {
+                                        "children": {
+                                            "IsSignaling": {
+                                                "datatype": "boolean",
+                                                "dbc2vss": {
+                                                    "interval_ms": 100,
+                                                    "signal": "DirectionIndicatorRightOn",
+                                                    "transform": {
+                                                      "mapping": [
+                                                        {
+                                                          "from": "OFF",
+                                                          "to": false
+                                                        },
+                                                        {
+                                                          "from": "ON",
+                                                          "to": true
+                                                        }
+                                                        ]
+                                                    }
+                                                },
+                                                "description": "Indicates if light is signaling or off. True = signaling. False = Off.",
+                                                "type": "actuator",
+                                                "vss2dbc": {
+                                                    "signal": "DirectionIndicatorRightOn",
+                                                    "transform": {
+                                                      "mapping": [
+                                                        {
+                                                          "from": true,
+                                                          "to": "ON"
+                                                        },
+                                                        {
+                                                          "from": false,
+                                                          "to": "OFF"
+                                                        }
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "description": "Indicator lights.",
+                                        "type": "branch"
+                                    }
+                                },
+                                "description": "Indicator lights.",
+                                "type": "branch"
+                            },
+                            "Hazard": {
+                                "children": {
+                                    "IsSignaling": {
+                                        "datatype": "boolean",
+                                        "dbc2vss": {
+                                            "interval_ms": 100,
+                                            "signal": "HazardOn",
+                                            "transform": {
+                                              "mapping": [
+                                                {
+                                                  "from": "OFF",
+                                                  "to": false
+                                                },
+                                                {
+                                                  "from": "ON",
+                                                  "to": true
+                                                }
+                                                ]
+                                            }
+                                        },
+                                        "description": "Indicates if light is signaling or off. True = signaling. False = Off.",
+                                        "type": "actuator",
+                                        "vss2dbc": {
+                                            "signal": "HazardOn",
+                                            "transform": {
+                                              "mapping": [
+                                                {
+                                                  "from": true,
+                                                  "to": "ON"
+                                                },
+                                                {
+                                                  "from": false,
+                                                  "to": "OFF"
+                                                }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                "description": "Hazard lights.",
+                                "type": "branch"
+                            },
+                            "IsOn": {
+                                "datatype": "boolean",
+                                "dbc2vss": {
+                                    "interval_ms": 100,
+                                    "signal": "LightsOn",
+                                    "transform": {
+                                      "mapping": [
+                                        {
+                                          "from": "OFF",
+                                          "to": false
+                                        },
+                                        {
+                                          "from": "ON",
+                                          "to": true
+                                        }
+                                        ]
+                                    }
+                                },
+                                "description": "Indicator if Light is On ",
+                                "type": "actuator",
+                                "vss2dbc": {
+                                    "signal": "LightsOn",
+                                    "transform": {
+                                      "mapping": [
+                                        {
+                                          "from": true,
+                                          "to": "ON"
+                                        },
+                                        {
+                                          "from": false,
+                                          "to": "OFF"
+                                        }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Exterior lights.",
+                        "type": "branch"
+                    }
+                }
+            },
+            "Cabin": {
+                "children": {
+                    "Door": {
+                        "children": {
+                            "Row1": {
+                                "children": {
+                                    "DriverSide": {
+                                        "children": {
+                                            "IsLocked": {
+                                                "datatype": "boolean",
+                                                "description": "Is item locked or unlocked. True = Locked. False = Unlocked.",
+                                                "type": "actuator"
+                                            },
+                                            "IsOpen": {
+                                                "datatype": "boolean",
+                                                "dbc2vss": {
+                                                    "interval_ms": 100,
+                                                    "signal": "DriverSideDoorOpen",
+                                                    "transform": {
+                                                      "mapping": [
+                                                        {
+                                                          "from": "CLOSED",
+                                                          "to": false
+                                                        },
+                                                        {
+                                                          "from": "OPEN",
+                                                          "to": true
+                                                        }
+                                                        ]
+                                                    }
+                                                },
+                                                "description": "Is item open or closed? True = Fully or partially open. False = Fully closed.",
+                                                "type": "sensor"
+                                            }
+                                        },
+                                        "description": "All doors, including windows and switches.",
+                                        "type": "branch"
+                                    },
+                                    "PassengerSide": {
+                                        "children": {
+                                            "IsLocked": {
+                                                "datatype": "boolean",
+                                                "description": "Is item locked or unlocked. True = Locked. False = Unlocked.",
+                                                "type": "actuator"
+                                            },
+                                            "IsOpen": {
+                                                "datatype": "boolean",
+                                                "dbc2vss": {
+                                                    "interval_ms": 100,
+                                                    "signal": "PassengerSideDoorOpen",
+                                                    "transform": {
+                                                      "mapping": [
+                                                        {
+                                                          "from": "CLOSED",
+                                                          "to": false
+                                                        },
+                                                        {
+                                                          "from": "OPEN",
+                                                          "to": true
+                                                        }
+                                                        ]
+                                                    }
+                                                },
+                                                "description": "Is item open or closed? True = Fully or partially open. False = Fully closed.",
+                                                "type": "sensor"
+                                            }
+                                        },
+                                        "description": "All doors, including windows and switches.",
+                                        "type": "branch"
+                                    }
+                                },
+                                "description": "All doors, including windows and switches.",
+                                "type": "branch"
+                            }
+                        },
+                        "description": "All doors, including windows and switches.",
+                        "type": "branch"
+                    },
+                    "DoorCount": {
+                        "datatype": "uint8",
+                        "description": "Number of doors in vehicle.",
+                        "type": "attribute"
+                    },
+                    "IsLocked": {                        
+                        "datatype": "boolean",                        
+                        "dbc2vss": {
+                            "signal": "VehicleDoorLocked",
+                            "transform": {
+                                "mapping": [
+                                    {   
+                                     "from": "LOCKED",
+                                     "to": true
+                                    },
+                                    {
+                                     "from": "UNLOCKED",
+                                     "to": false
+                                    }
+                                ]
+                            }
+                        },
+                        "description": "nan",
+                        "type": "sensor"
+                    },
+                    "Light": {
+                        "children": {
+                            "AmbientLight": {
+                                "children": {
+                                    "IsLightOn": {
+                                        "unit": "",
+                                        "type": "actuator",
+                                        "datatype": "boolean"
+                                    }
+                                },
+                                "type": "branch",
+                                "description": "Ambient Light inside the Vehicle "
+                            }
+                        },
+                        "type": "branch",
+                        "description": "Lights inside the Vehicle "
+                    }
+                },
+                "description": "All in-cabin components, including doors.",
+                "type": "branch"
+            }
+        },
+        "description": "Root node for vehicle data",
+        "type": "branch"       
+    }
+}

@@ -1,0 +1,29 @@
+version: '3'
+services:
+  dbc_feeder:
+    image: can-provider:latest 
+    restart: always
+    container_name: dbc-feeder-front
+    environment:
+      - LOG_LEVEL=INFO,dbcfeederlib.dbc2vssmapper=DEBUG
+    command: [
+      "--config", "/app/dbc_feeder.ini",
+      "--dbcfile", "/app/hhn_sdv_front.dbc",
+      "--mapping", "/app/vss_dbc_front.json",
+      "--server-type", "kuksa_databroker",
+      "--dbc-default", "/app/dbc_default_values.json",
+      "--canport","vcan0",
+      "--dbc2val",
+      "--val2dbc",
+      "--use-socketcan",
+    ]
+    volumes:
+      - ./config/dbc_feeder.ini:/app/dbc_feeder.ini
+      - ./hhn_sdv_front.dbc:/app/hhn_sdv_front.dbc
+      - ./dbc_default_values.json:/app/dbc_default_values.json      
+      - ./mapping/vss_dbc_front.json:/app/vss_dbc_front.json
+    network_mode: host
+
+
+
+

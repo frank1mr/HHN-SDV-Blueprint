@@ -1,0 +1,11 @@
+{
+  "LightsOn": 0,
+  "LowBeamOn": 0,
+  "HighBeamOn": 0,
+  "DirectionIndicatorRightOn": 0,
+  "DirectionIndicatorLeftOn": 0,
+  "HazardOn": 0,
+  "VehicleDoorLocked": 0, 
+  "DriverSideDoorOpen": 0,  
+  "PassengerSideDoorOpen": 0
+}
