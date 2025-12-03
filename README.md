@@ -11,7 +11,7 @@ The stack connects natively to digital.auto through the SDV Runtime, enabling di
 
 ## Software Architecture Overview
 
-<img width="1924" height="1414" alt="image" src="https://github.com/user-attachments/assets/9f59570e-0c33-4479-8d2c-f1106353c796" />
+<img width="1924" height="1414" alt="image" src="sonstige Dateien/Bilder/Architektur.png" />
 
 The system architecture combines cloud-based SDV tooling with real automotive hardware to form a complete end-to-end Software-Defined Vehicle environment. Development, deployment, and runtime execution are tightly integrated through the digital.auto ecosystem and the Eclipse SDV stack.
 
@@ -23,7 +23,7 @@ On the runtime side, the HHN demonstrator operates as an Autowrx Runtime Target.
 
 The HHN SDV Demonstrator is built as a compact and modular hardware platform that exposes essential vehicle functions in a clear and accessible form. All components are mounted on a multi-layer acrylic baseplate, providing full visibility of wiring, ECUs, and signal paths.
 
-<img width="3240" height="1804" alt="HHN-SDV-Demo-CAD v51" src="https://github.com/user-attachments/assets/94ae8274-d4d4-4b5e-9b29-ac33d4b71a4c" />
+<img width="3240" height="1804" alt="HHN-SDV-Demo-CAD v51" src="sonstige Dateien/Bilder/Aufbau.png" />
 
 **Mechanical Structure**
 
@@ -44,7 +44,7 @@ Overall, the hardware layout is optimized for education and experimentation, ena
 
 ## Hardware Components and wiring
 
-<img width="922" height="777" alt="image" src="https://github.com/user-attachments/assets/c8d38240-07cc-4f16-a492-e2971f4514cb" />
+<img width="922" height="777" alt="image" src="sonstige Dateien/Bilder/Schaltplan.png" />
 
 **Core Computing & Runtime**
 
