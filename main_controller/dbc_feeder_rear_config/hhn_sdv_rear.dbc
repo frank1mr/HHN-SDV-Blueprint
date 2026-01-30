@@ -40,7 +40,7 @@ BO_ 768 AmbientLights: 6 ZoneController
 BO_ 512 BackLights: 6 ZoneControllerRear
  SG_ LightsOn : 0|1@1+ (1,0) [0|1] "" BackLightLeft,BackLightRight
  SG_ BackupLightOn : 8|1@1+ (1,0) [0|1] "" BackLightLeft,BackLightRight
- SG_ BreakLightOn : 16|1@1+ (1,0) [0|1] "" BackLightLeft,BackLightRight
+ SG_ BrakeLightOn : 16|8@1+ (1,0) [0|255] "" BackLightLeft,BackLightRight
  SG_ DirectionIndicatorRightOn : 24|1@1+ (1,0) [0|1] "" BackLightRight
  SG_ DirectionIndicatorLeftOn : 32|1@1+ (1,0) [0|1] "" BackLightLeft
  SG_ HazardOn : 40|1@1+ (1,0) [0|1] "" BackLightLeft,BackLightRight
@@ -56,7 +56,7 @@ VAL_ 768 AmbientLightsOn 0 "OFF" 1 "ON";
 
 VAL_ 512 LightsOn 0 "OFF" 1 "ON";
 VAL_ 512 BackupLightOn 0 "OFF" 1 "ON";
-VAL_ 512 BreakLightOn 0 "OFF" 1 "ON";
+VAL_ 512 BrakeLightOn 0 "OFF" 1 "ON" 2 "FLASH";
 VAL_ 512 DirectionIndicatorRightOn 0 "OFF" 1 "ON";
 VAL_ 512 DirectionIndicatorLeftOn 0 "OFF" 1 "ON";
 VAL_ 512 HazardOn 0 "OFF" 1 "ON";

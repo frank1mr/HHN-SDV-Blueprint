@@ -1,6 +1,45 @@
 {
     "Vehicle": {
         "children": {
+            "Powertrain": {
+                "children": {
+                    "Transmission": {
+                        "children": {
+                            "CurrentGear": {
+                                "datatype": "int8",
+                                "type": "sensor",
+                                "dbc2vss": {
+                                    "interval_ms": 100,
+                                    "signal": "CurrentGear"
+                                }
+                            },
+                            "SelectedGear": {
+                                "datatype": "int8",
+                                "type": "actuator",
+                                "dbc2vss": {
+                                    "interval_ms": 100,
+                                    "signal": "SelectedGear"
+                                },
+                                "vss2dbc": {
+                                    "signal": "SelectedGear"
+                                }
+                            },
+                            "GearCount": {
+                                "datatype": "int8",
+                                "type": "attribute",
+                                "dbc2vss": {
+                                    "interval_ms": 100,
+                                    "signal": "GearCount"
+                                }
+                            }
+                        },
+                        "description": "Transmission state and configuration.",
+                        "type": "branch"
+                    }
+                },
+                "description": "All powertrain components.",
+                "type": "branch"
+            },
             "ADAS": {
                 "children": {
                     "PDC": {
