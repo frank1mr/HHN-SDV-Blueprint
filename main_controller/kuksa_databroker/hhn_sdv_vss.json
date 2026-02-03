@@ -1,482 +1,493 @@
 {
     "Vehicle": {
+        "description": "Vehicle",
+        "type": "branch",
         "children": {
             "ADAS": {
+                "apiName": "Vehicle.ADAS",
+                "type": "branch",
+                "description": "All Advanced Driver Assist Systems data.",
+                "isWishlist": false,
+                "id": "691d9602d327158aa9725df2",
                 "children": {
                     "PDC": {
+                        "apiName": "Vehicle.ADAS.PDC",
+                        "unit": null,
+                        "type": "branch",
+                        "description": "Park Distance Control ",
+                        "isWishlist": false,
+                        "id": "691d9602d327158aa9725dae",
                         "children": {
                             "Rear": {
+                                "apiName": "Vehicle.ADAS.PDC.Rear",
+                                "unit": null,
+                                "type": "branch",
+                                "description": "nan",
+                                "isWishlist": false,
+                                "id": "691d9602d327158aa9725db0",
                                 "children": {
                                     "Distance": {
-                                        "datatype": "double",
-                                        "dbc2vss": {
-                                            "interval_ms": 100,
-                                            "signal": "PdcDistance",
-                                            "transform": {
-                                              "math": "floor(x)"
-                                            }
-                                        },
-                                        "max": "255",
-                                        "min": "0",
-                                        "description": "nan",
+                                        "apiName": "Vehicle.ADAS.PDC.Rear.Distance",
+                                        "unit": "cm",
                                         "type": "sensor",
-                                        "unit": "cm"
+                                        "datatype": "double",
+                                        "description": "nan",
+                                        "isWishlist": false,
+                                        "id": "691d9602d327158aa9725daa",
+                                        "name": "Vehicle.ADAS.PDC.Rear.Distance"
                                     },
                                     "IsActive": {
-                                        "datatype": "boolean",
-                                        "dbc2vss": {
-                                            "interval_ms": 100,
-                                            "signal": "PdcActive",
-                                            "transform": {
-                                              "mapping": [
-                                                {
-                                                  "from": "ACTIVE",
-                                                  "to": true
-                                                },
-                                                {
-                                                  "from": "INACTIVE",
-                                                  "to": false
-                                                }
-                                                ]
-                                            }
-                                        },
-                                        "description": "nan",
+                                        "apiName": "Vehicle.ADAS.PDC.Rear.IsActive",
+                                        "unit": null,
                                         "type": "actuator",
-                                        "vss2dbc": {
-                                            "signal": "PdcActive",
-                                            "transform": {
-                                                "mapping": [
-                                                {
-                                                "from": true,
-                                                "to": "ACTIVE"
-                                                },
-                                                {
-                                                "from": false,
-                                                "to": "INACTIVE"
-                                                }
-                                                ]
-                                            }
-                                        }
+                                        "datatype": "boolean",
+                                        "description": "nan",
+                                        "isWishlist": false,
+                                        "id": "691d9602d327158aa9725dac",
+                                        "name": "Vehicle.ADAS.PDC.Rear.IsActive"
                                     }
                                 },
-                                "description": "nan",
-                                "type": "branch"
+                                "name": "Vehicle.ADAS.PDC.Rear"
                             }
                         },
-                        "description": "Park Distance Control ",
-                        "type": "branch"
+                        "name": "Vehicle.ADAS.PDC"
                     }
                 },
-                "description": "All Advanced Driver Assist Systems data.",
-                "type": "branch"
+                "name": "Vehicle.ADAS"
             },
             "Body": {
-                "description": "All body components.",
+                "apiName": "Vehicle.Body",
                 "type": "branch",
+                "description": "All body components.",
+                "isWishlist": false,
+                "id": "691d9602d327158aa9725df4",
                 "children": {
                     "BodyType": {
+                        "apiName": "Vehicle.Body.BodyType",
+                        "type": "attribute",
                         "datatype": "string",
                         "description": "Body type code as defined by ISO 3779.",
-                        "type": "attribute"
+                        "isWishlist": false,
+                        "id": "691d9602d327158aa9725ddc",
+                        "name": "Vehicle.Body.BodyType"
                     },
                     "Lights": {
+                        "apiName": "Vehicle.Body.Lights",
+                        "type": "branch",
+                        "description": "Exterior lights.",
+                        "isWishlist": false,
+                        "id": "691d9602d327158aa9725dde",
                         "children": {
                             "Backup": {
+                                "apiName": "Vehicle.Body.Lights.Backup",
+                                "type": "branch",
+                                "description": "Backup lights.",
+                                "isWishlist": false,
+                                "id": "691d9602d327158aa9725dd2",
                                 "children": {
                                     "IsOn": {
+                                        "apiName": "Vehicle.Body.Lights.Backup.IsOn",
+                                        "type": "actuator",
                                         "datatype": "boolean",
-                                        "dbc2vss": {
-                                            "interval_ms": 100,
-                                            "signal": "BackupLightOn",
-                                            "transform": {
-                                              "mapping": [
-                                                {
-                                                  "from": "OFF",
-                                                  "to": false
-                                                },
-                                                {
-                                                  "from": "ON",
-                                                  "to": true
-                                                }
-                                                ]
-                                            }
-                                        },
-                                        "type": "actuator",                                        
                                         "description": "Indicates if light is on or off. True = On. False = Off.",
-                                        "vss2dbc": {
-                                            "signal": "BackupLightOn",
-                                            "transform": {
-                                              "mapping": [
-                                                {
-                                                  "from": true,
-                                                  "to": "ON"
-                                                },
-                                                {
-                                                  "from": false,
-                                                  "to": "OFF"
-                                                }
-                                                ]
-                                            }
-                                        }
+                                        "isWishlist": false,
+                                        "id": "691d9602d327158aa9725dbc",
+                                        "name": "Vehicle.Body.Lights.Backup.IsOn"
                                     }
                                 },
-                                "description": "Backup lights.",
-                                "type": "branch"
+                                "name": "Vehicle.Body.Lights.Backup"
                             },
                             "Beam": {
+                                "apiName": "Vehicle.Body.Lights.Beam",
+                                "type": "branch",
+                                "description": "Beam lights.",
+                                "isWishlist": false,
+                                "id": "691d9602d327158aa9725dd4",
                                 "children": {
                                     "High": {
+                                        "apiName": "Vehicle.Body.Lights.Beam.High",
+                                        "type": "branch",
+                                        "description": "Beam lights.",
+                                        "isWishlist": false,
+                                        "id": "691d9602d327158aa9725dc4",
                                         "children": {
                                             "IsOn": {
+                                                "apiName": "Vehicle.Body.Lights.Beam.High.IsOn",
+                                                "type": "actuator",
                                                 "datatype": "boolean",
                                                 "description": "Indicates if light is on or off. True = On. False = Off.",
-                                                "type": "actuator"
+                                                "isWishlist": false,
+                                                "id": "691d9602d327158aa9725dc0",
+                                                "name": "Vehicle.Body.Lights.Beam.High.IsOn"
                                             }
                                         },
-                                        "description": "Beam lights.",
-                                        "type": "branch"
+                                        "name": "Vehicle.Body.Lights.Beam.High"
                                     },
                                     "Low": {
+                                        "apiName": "Vehicle.Body.Lights.Beam.Low",
+                                        "type": "branch",
+                                        "description": "Beam lights.",
+                                        "isWishlist": false,
+                                        "id": "691d9602d327158aa9725dc2",
                                         "children": {
                                             "IsOn": {
+                                                "apiName": "Vehicle.Body.Lights.Beam.Low.IsOn",
+                                                "type": "actuator",
                                                 "datatype": "boolean",
                                                 "description": "Indicates if light is on or off. True = On. False = Off.",
-                                                "type": "actuator"
+                                                "isWishlist": false,
+                                                "id": "691d9602d327158aa9725dbe",
+                                                "name": "Vehicle.Body.Lights.Beam.Low.IsOn"
                                             }
                                         },
-                                        "description": "Beam lights.",
-                                        "type": "branch"
+                                        "name": "Vehicle.Body.Lights.Beam.Low"
                                     }
                                 },
-                                "description": "Beam lights.",
-                                "type": "branch"
+                                "name": "Vehicle.Body.Lights.Beam"
                             },
                             "Brake": {
+                                "apiName": "Vehicle.Body.Lights.Brake",
+                                "type": "branch",
+                                "description": "Brake lights.",
+                                "isWishlist": false,
+                                "id": "691d9602d327158aa9725dd6",
                                 "children": {
                                     "IsActive": {
-                                        "allowed": [
-                                            "INACTIVE",
-                                            "ACTIVE",
-                                            "ADAPTIVE"
-                                        ],
-                                        "datatype": "string",
-                                        "dbc2vss": {
-                                            "interval_ms": 100,
-                                            "signal": "BrakeLightOn",
-                                            "transform": {
-                                              "mapping": [
-                                                {
-                                                  "from": "OFF",
-                                                  "to": "INACTIVE"
-                                                },
-                                                {
-                                                  "from": "ON",
-                                                  "to": "ACTIVE"
-                                                },
-                                                {
-                                                  "from": "FLASH",
-                                                  "to": "ADAPTIVE"
-                                                }
-                                                ]
-                                            }
-                                        },
-                                        "description": "Indicates if brake-light is active. INACTIVE means lights are off. ACTIVE means lights are on. ADAPTIVE means that brake-light is indicating emergency-brakeing.",
+                                        "apiName": "Vehicle.Body.Lights.Brake.IsActive",
+                                        "unit": null,
                                         "type": "actuator",
-                                        "vss2dbc": {
-                                            "signal": "BrakeLightOn",
-                                            "transform": {
-                                              "mapping": [
-                                                {
-                                                  "from": "ACTIVE",
-                                                  "to": "ON"
-                                                },
-                                                {
-                                                  "from": "INACTIVE",
-                                                  "to": "OFF"
-                                                },
-                                                {
-                                                  "from": "ADAPTIVE",
-                                                  "to": "FLASH"
-                                                }
-                                                ]
-                                            }
-
-                                        }
+                                        "datatype": "string",
+                                        "description": "\nIndicates if break-light is active. INACTIVE means lights are off. ACTIVE means lights are on. ADAPTIVE means that break-light is indicating emergency-breaking.",
+                                        "isWishlist": false,
+                                        "id": "695781e382f2f2cfdd4f6849",
+                                        "name": "Vehicle.Body.Lights.Brake.IsActive"
                                     }
                                 },
-                                "description": "Brake lights.",
-                                "type": "branch"
+                                "name": "Vehicle.Body.Lights.Brake"
                             },
                             "DirectionIndicator": {
+                                "apiName": "Vehicle.Body.Lights.DirectionIndicator",
+                                "type": "branch",
+                                "description": "Indicator lights.",
+                                "isWishlist": false,
+                                "id": "691d9602d327158aa9725dd8",
                                 "children": {
                                     "Left": {
+                                        "apiName": "Vehicle.Body.Lights.DirectionIndicator.Left",
+                                        "type": "branch",
+                                        "description": "Indicator lights.",
+                                        "isWishlist": false,
+                                        "id": "691d9602d327158aa9725dcc",
                                         "children": {
                                             "IsSignaling": {
-                                                "datatype": "boolean",
-                                                "dbc2vss": {
-                                                    "interval_ms": 100,
-                                                    "signal": "DirectionIndicatorLeftOn",
-                                                    "transform": {
-                                                      "mapping": [
-                                                        {
-                                                          "from": "OFF",
-                                                          "to": false
-                                                        },
-                                                        {
-                                                          "from": "ON",
-                                                          "to": true
-                                                        }
-                                                        ]
-                                                    }
-                                                },
-                                                "description": "Indicates if light is signaling or off. True = signaling. False = Off.",
+                                                "apiName": "Vehicle.Body.Lights.DirectionIndicator.Left.IsSignaling",
                                                 "type": "actuator",
-                                                "vss2dbc": {
-                                                    "signal": "DirectionIndicatorLeftOn",
-                                                    "transform": {
-                                                      "mapping": [
-                                                        {
-                                                          "from": true,
-                                                          "to": "ON"
-                                                        },
-                                                        {
-                                                          "from": false,
-                                                          "to": "OFF"
-                                                        }
-                                                        ]
-                                                    }
-                                                }
+                                                "datatype": "boolean",
+                                                "description": "Indicates if light is signaling or off. True = signaling. False = Off.",
+                                                "isWishlist": false,
+                                                "id": "691d9602d327158aa9725dc8",
+                                                "name": "Vehicle.Body.Lights.DirectionIndicator.Left.IsSignaling"
                                             }
                                         },
-                                        "description": "Indicator lights.",
-                                        "type": "branch"
+                                        "name": "Vehicle.Body.Lights.DirectionIndicator.Left"
                                     },
                                     "Right": {
+                                        "apiName": "Vehicle.Body.Lights.DirectionIndicator.Right",
+                                        "type": "branch",
+                                        "description": "Indicator lights.",
+                                        "isWishlist": false,
+                                        "id": "691d9602d327158aa9725dce",
                                         "children": {
                                             "IsSignaling": {
-                                                "datatype": "boolean",
-                                                "dbc2vss": {
-                                                    "interval_ms": 100,
-                                                    "signal": "DirectionIndicatorRightOn",
-                                                    "transform": {
-                                                      "mapping": [
-                                                        {
-                                                          "from": "OFF",
-                                                          "to": false
-                                                        },
-                                                        {
-                                                          "from": "ON",
-                                                          "to": true
-                                                        }
-                                                        ]
-                                                    }
-                                                },
-                                                "description": "Indicates if light is signaling or off. True = signaling. False = Off.",
+                                                "apiName": "Vehicle.Body.Lights.DirectionIndicator.Right.IsSignaling",
                                                 "type": "actuator",
-                                                "vss2dbc": {
-                                                    "signal": "DirectionIndicatorRightOn",
-                                                    "transform": {
-                                                      "mapping": [
-                                                        {
-                                                          "from": true,
-                                                          "to": "ON"
-                                                        },
-                                                        {
-                                                          "from": false,
-                                                          "to": "OFF"
-                                                        }
-                                                        ]
-                                                    }
-                                                }
+                                                "datatype": "boolean",
+                                                "description": "Indicates if light is signaling or off. True = signaling. False = Off.",
+                                                "isWishlist": false,
+                                                "id": "691d9602d327158aa9725dca",
+                                                "name": "Vehicle.Body.Lights.DirectionIndicator.Right.IsSignaling"
                                             }
                                         },
-                                        "description": "Indicator lights.",
-                                        "type": "branch"
+                                        "name": "Vehicle.Body.Lights.DirectionIndicator.Right"
                                     }
                                 },
-                                "description": "Indicator lights.",
-                                "type": "branch"
+                                "name": "Vehicle.Body.Lights.DirectionIndicator"
                             },
                             "Hazard": {
+                                "apiName": "Vehicle.Body.Lights.Hazard",
+                                "type": "branch",
+                                "description": "Hazard lights.",
+                                "isWishlist": false,
+                                "id": "691d9602d327158aa9725dda",
                                 "children": {
                                     "IsSignaling": {
-                                        "datatype": "boolean",
-                                        "dbc2vss": {
-                                            "interval_ms": 100,
-                                            "signal": "HazardOn",
-                                            "transform": {
-                                              "mapping": [
-                                                {
-                                                  "from": "OFF",
-                                                  "to": false
-                                                },
-                                                {
-                                                  "from": "ON",
-                                                  "to": true
-                                                }
-                                                ]
-                                            }
-                                        },
-                                        "description": "Indicates if light is signaling or off. True = signaling. False = Off.",
+                                        "apiName": "Vehicle.Body.Lights.Hazard.IsSignaling",
                                         "type": "actuator",
-                                        "vss2dbc": {
-                                            "signal": "HazardOn",
-                                            "transform": {
-                                              "mapping": [
-                                                {
-                                                  "from": true,
-                                                  "to": "ON"
-                                                },
-                                                {
-                                                  "from": false,
-                                                  "to": "OFF"
-                                                }
-                                                ]
-                                            }
-                                        }
+                                        "datatype": "boolean",
+                                        "description": "Indicates if light is signaling or off. True = signaling. False = Off.",
+                                        "isWishlist": false,
+                                        "id": "691d9602d327158aa9725dd0",
+                                        "name": "Vehicle.Body.Lights.Hazard.IsSignaling"
                                     }
                                 },
-                                "description": "Hazard lights.",
-                                "type": "branch"
+                                "name": "Vehicle.Body.Lights.Hazard"
                             },
                             "IsOn": {
-                                "datatype": "boolean",
-                                "dbc2vss": {
-                                    "interval_ms": 100,
-                                    "signal": "LightsOn",
-                                    "transform": {
-                                      "mapping": [
-                                        {
-                                          "from": "OFF",
-                                          "to": false
-                                        },
-                                        {
-                                          "from": "ON",
-                                          "to": true
-                                        }
-                                        ]
-                                    }
-                                },
-                                "description": "Indicator if Light is On ",
+                                "apiName": "Vehicle.Body.Lights.IsOn",
+                                "unit": null,
                                 "type": "actuator",
-                                "vss2dbc": {
-                                    "signal": "LightsOn",
-                                    "transform": {
-                                      "mapping": [
-                                        {
-                                          "from": true,
-                                          "to": "ON"
-                                        },
-                                        {
-                                          "from": false,
-                                          "to": "OFF"
-                                        }
-                                        ]
-                                    }
-                                }
-                            }
-                        },
-                        "description": "Exterior lights.",
-                        "type": "branch"
-                    }
-                }
-            },
-            "Cabin": {
-                "children": {
-                    "Door": {
-                        "children": {
-                            "Row1": {
+                                "datatype": "boolean",
+                                "description": "Indicator if Light is On ",
+                                "isWishlist": false,
+                                "id": "691d9602d327158aa9725db2",
+                                "name": "Vehicle.Body.Lights.IsOn"
+                            },
+                            "Parking": {
+                                "type": "branch",
                                 "children": {
-                                    "DriverSide": {
-                                        "children": {
-                                            "IsLocked": {
-                                                "datatype": "boolean",
-                                                "description": "Is item locked or unlocked. True = Locked. False = Unlocked.",
-                                                "type": "actuator"
-                                            },
-                                            "IsOpen": {
-                                                "datatype": "boolean",
-                                                "description": "Is item open or closed? True = Fully or partially open. False = Fully closed.",
-                                                "type": "sensor"
-                                            }
-                                        },
-                                        "description": "All doors, including windows and switches.",
-                                        "type": "branch"
-                                    },
-                                    "PassengerSide": {
-                                        "children": {
-                                            "IsLocked": {
-                                                "datatype": "boolean",
-                                                "description": "Is item locked or unlocked. True = Locked. False = Unlocked.",
-                                                "type": "actuator"
-                                            },
-                                            "IsOpen": {
-                                                "datatype": "boolean",
-                                                "description": "Is item open or closed? True = Fully or partially open. False = Fully closed.",
-                                                "type": "sensor"
-                                            }
-                                        },
-                                        "description": "All doors, including windows and switches.",
-                                        "type": "branch"
-                                    }
-                                },
-                                "description": "All doors, including windows and switches.",
-                                "type": "branch"
-                            }
-                        },
-                        "description": "All doors, including windows and switches.",
-                        "type": "branch"
-                    },
-                    "DoorCount": {
-                        "datatype": "uint8",
-                        "description": "Number of doors in vehicle.",
-                        "type": "attribute"
-                    },
-                    "IsLocked": {                        
-                        "datatype": "boolean",
-                        "type": "sensor",
-                        "description": "nan"
-                    },
-                                        "Light": {
-                        "children": {
-                            "AmbientLight": {
-                                "children": {
-                                    "IsLightOn": {
-                                        "datatype": "boolean",
-                                        "unit": "",
+                                    "IsOn": {
+                                        "apiName": "Vehicle.Body.Lights.Parking.IsOn",
+                                        "unit": null,
                                         "type": "actuator",
-                                        "description": "nan",
-                                        "vss2dbc": {
-                                            "signal": "AmbientLightsOn",
-                                            "transform": {
-                                              "mapping": [
-                                                {
-                                                  "from": true,
-                                                  "to": "ON"
-                                                },
-                                                {
-                                                  "from": false,
-                                                  "to": "OFF"
-                                                }
-                                                ]
-                                            }
-                                        }
+                                        "datatype": "boolean",
+                                        "description": "Indicates if light is on or off. True = On. False = Off.",
+                                        "isWishlist": false,
+                                        "id": "69566d1b82f2f2cfdd4dea4f",
+                                        "name": "Vehicle.Body.Lights.Parking.IsOn"
                                     }
                                 },
-                                "description": "Ambient Light inside the Vehicle ",
-                                "type": "branch"
-                                
+                                "name": "Vehicle.Body.Lights.Parking",
+                                "id": "02653aa24ed24825f46138eb",
+                                "description": "nan"
                             }
                         },
-                        "description": "Lights inside the Vehicle ",
-                        "type": "branch"
+                        "name": "Vehicle.Body.Lights"
                     }
                 },
+                "name": "Vehicle.Body"
+            },
+            "Cabin": {
+                "apiName": "Vehicle.Cabin",
+                "type": "branch",
                 "description": "All in-cabin components, including doors.",
-                "type": "branch"
+                "isWishlist": false,
+                "id": "691d9602d327158aa9725df6",
+                "children": {
+                    "Door": {
+                        "apiName": "Vehicle.Cabin.Door",
+                        "type": "branch",
+                        "description": "All doors, including windows and switches.",
+                        "isWishlist": false,
+                        "id": "691d9602d327158aa9725dee",
+                        "children": {
+                            "Row1": {
+                                "apiName": "Vehicle.Cabin.Door.Row1",
+                                "type": "branch",
+                                "description": "All doors, including windows and switches.",
+                                "isWishlist": false,
+                                "id": "691d9602d327158aa9725dec",
+                                "children": {
+                                    "DriverSide": {
+                                        "apiName": "Vehicle.Cabin.Door.Row1.DriverSide",
+                                        "type": "branch",
+                                        "description": "All doors, including windows and switches.",
+                                        "isWishlist": false,
+                                        "id": "691d9602d327158aa9725de8",
+                                        "children": {
+                                            "IsLocked": {
+                                                "apiName": "Vehicle.Cabin.Door.Row1.DriverSide.IsLocked",
+                                                "type": "actuator",
+                                                "datatype": "boolean",
+                                                "description": "Is item locked or unlocked. True = Locked. False = Unlocked.",
+                                                "isWishlist": false,
+                                                "id": "691d9602d327158aa9725de0",
+                                                "name": "Vehicle.Cabin.Door.Row1.DriverSide.IsLocked"
+                                            },
+                                            "IsOpen": {
+                                                "apiName": "Vehicle.Cabin.Door.Row1.DriverSide.IsOpen",
+                                                "unit": null,
+                                                "type": "sensor",
+                                                "datatype": "boolean",
+                                                "description": "Is item open or closed? True = Fully or partially open. False = Fully closed.",
+                                                "isWishlist": false,
+                                                "id": "691d9602d327158aa9725de2",
+                                                "name": "Vehicle.Cabin.Door.Row1.DriverSide.IsOpen"
+                                            }
+                                        },
+                                        "name": "Vehicle.Cabin.Door.Row1.DriverSide"
+                                    },
+                                    "PassengerSide": {
+                                        "apiName": "Vehicle.Cabin.Door.Row1.PassengerSide",
+                                        "type": "branch",
+                                        "description": "All doors, including windows and switches.",
+                                        "isWishlist": false,
+                                        "id": "691d9602d327158aa9725dea",
+                                        "children": {
+                                            "IsLocked": {
+                                                "apiName": "Vehicle.Cabin.Door.Row1.PassengerSide.IsLocked",
+                                                "type": "actuator",
+                                                "datatype": "boolean",
+                                                "description": "Is item locked or unlocked. True = Locked. False = Unlocked.",
+                                                "isWishlist": false,
+                                                "id": "691d9602d327158aa9725de4",
+                                                "name": "Vehicle.Cabin.Door.Row1.PassengerSide.IsLocked"
+                                            },
+                                            "IsOpen": {
+                                                "apiName": "Vehicle.Cabin.Door.Row1.PassengerSide.IsOpen",
+                                                "unit": null,
+                                                "type": "sensor",
+                                                "datatype": "boolean",
+                                                "description": "Is item open or closed? True = Fully or partially open. False = Fully closed.",
+                                                "isWishlist": false,
+                                                "id": "691d9602d327158aa9725de6",
+                                                "name": "Vehicle.Cabin.Door.Row1.PassengerSide.IsOpen"
+                                            }
+                                        },
+                                        "name": "Vehicle.Cabin.Door.Row1.PassengerSide"
+                                    }
+                                },
+                                "name": "Vehicle.Cabin.Door.Row1"
+                            }
+                        },
+                        "name": "Vehicle.Cabin.Door"
+                    },
+                    "DoorCount": {
+                        "apiName": "Vehicle.Cabin.DoorCount",
+                        "type": "attribute",
+                        "datatype": "uint8",
+                        "description": "Number of doors in vehicle.",
+                        "isWishlist": false,
+                        "default": 4,
+                        "id": "691d9602d327158aa9725df0",
+                        "name": "Vehicle.Cabin.DoorCount"
+                    },
+                    "IsLocked": {
+                        "apiName": "Vehicle.Cabin.IsLocked",
+                        "unit": null,
+                        "type": "sensor",
+                        "datatype": "boolean",
+                        "description": "nan",
+                        "isWishlist": false,
+                        "id": "691d9602d327158aa9725db8",
+                        "name": "Vehicle.Cabin.IsLocked"
+                    },
+                    "Light": {
+                        "apiName": "Vehicle.Cabin.Light",
+                        "unit": null,
+                        "type": "branch",
+                        "description": "Lights inside the Vehicle ",
+                        "isWishlist": false,
+                        "id": "691d9602d327158aa9725dba",
+                        "children": {
+                            "AmbientLight": {
+                                "apiName": "Vehicle.Cabin.Light.AmbientLight",
+                                "unit": null,
+                                "type": "branch",
+                                "description": "Ambient Light inside the Vehicle ",
+                                "isWishlist": false,
+                                "id": "691d9602d327158aa9725db6",
+                                "children": {
+                                    "IsLightOn": {
+                                        "apiName": "Vehicle.Cabin.Light.AmbientLight.IsLightOn",
+                                        "unit": null,
+                                        "type": "actuator",
+                                        "datatype": "boolean",
+                                        "description": "indicator if the Light is on",
+                                        "isWishlist": false,
+                                        "id": "691d9602d327158aa9725db4",
+                                        "name": "Vehicle.Cabin.Light.AmbientLight.IsLightOn"
+                                    }
+                                },
+                                "name": "Vehicle.Cabin.Light.AmbientLight"
+                            }
+                        },
+                        "name": "Vehicle.Cabin.Light"
+                    },
+                    "RearShade": {
+                        "type": "branch",
+                        "children": {
+                            "Position": {
+                                "apiName": "Vehicle.Cabin.RearShade.Position",
+                                "unit": null,
+                                "type": "actuator",
+                                "datatype": "int8",
+                                "description": "nan",
+                                "isWishlist": false,
+                                "id": "6926c4c4d327158aa974ac5e",
+                                "name": "Vehicle.Cabin.RearShade.Position"
+                            }
+                        },
+                        "name": "Vehicle.Cabin.RearShade",
+                        "id": "f1335dceea605933716ded92",
+                        "description": "nan"
+                    }
+                },
+                "name": "Vehicle.Cabin"
+            },
+            "Powertrain": {
+                "apiName": "Vehicle.Powertrain",
+                "unit": null,
+                "type": "branch",
+                "description": "nan",
+                "isWishlist": false,
+                "id": "6926b2c0d327158aa9747b22",
+                "children": {
+                    "Transmission": {
+                        "apiName": "Vehicle.Powertrain.Transmission",
+                        "unit": null,
+                        "type": "branch",
+                        "description": "nan",
+                        "isWishlist": false,
+                        "id": "6926b2d6d327158aa9747ba2",
+                        "children": {
+                            "CurrentGear": {
+                                "apiName": "Vehicle.Powertrain.Transmission.CurrentGear",
+                                "unit": null,
+                                "type": "sensor",
+                                "datatype": "int8",
+                                "description": "The current gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse.",
+                                "isWishlist": false,
+                                "id": "6926b2fbd327158aa9747c2e",
+                                "name": "Vehicle.Powertrain.Transmission.CurrentGear"
+                            },
+                            "GearCount": {
+                                "apiName": "Vehicle.Powertrain.Transmission.GearCount",
+                                "unit": null,
+                                "type": "attribute",
+                                "datatype": "int8",
+                                "description": "Number of forward gears in the transmission. -1 = CVT.",
+                                "isWishlist": false,
+                                "id": "6926b33ed327158aa9747d9d",
+                                "name": "Vehicle.Powertrain.Transmission.GearCount"
+                            },
+                            "SelectedGear": {
+                                "apiName": "Vehicle.Powertrain.Transmission.SelectedGear",
+                                "unit": null,
+                                "type": "actuator",
+                                "datatype": "int8",
+                                "description": " The selected gear. 0=Neutral, 1/2/..=Forward, -1/-2/..=Reverse, 126=Park, 127=Drive.",
+                                "isWishlist": false,
+                                "id": "6926b31bd327158aa9747cea",
+                                "name": "Vehicle.Powertrain.Transmission.SelectedGear"
+                            }
+                        },
+                        "name": "Vehicle.Powertrain.Transmission"
+                    }
+                },
+                "name": "Vehicle.Powertrain"
+            },
+            "Speed": {
+                "apiName": "Vehicle.Speed",
+                "unit": "km/h",
+                "type": "sensor",
+                "datatype": "float",
+                "description": "Current speed of the vehicle",
+                "isWishlist": false,
+                "id": "691da5f8d327158aa9726421",
+                "name": "Vehicle.Speed"
             }
         },
-        "description": "Root node for vehicle data",
-        "type": "branch"
+        "name": "Vehicle",
+        "id": "a39a23b616d404221ae6b023"
     }
 }
