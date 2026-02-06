@@ -19,7 +19,7 @@ On the development side, Vehicle Apps are created in Python using the Velocitas 
 
 On the runtime side, the HHN demonstrator operates as an Autowrx Runtime Target. It integrates the Eclipse Autowrx Runtime, which includes the App Manager and the local KUKSA Databroker. The Databroker exposes a standardized VSS data model, acting as the central data interface for all Vehicle Apps. Incoming CAN signals from the demonstrator’s ECUs flow through the KUKSA Provider (implemented using a dbc-feeder), which converts raw CAN frames into VSS signals and publishes them to the Databroker.
 
-## Hartdware Architecture Overview
+## Hardware Architecture Overview
 
 The HHN SDV Demonstrator is built as a compact and modular hardware platform that exposes essential vehicle functions in a clear and accessible form. All components are mounted on a multi-layer acrylic baseplate, providing full visibility of wiring, ECUs, and signal paths.
 
