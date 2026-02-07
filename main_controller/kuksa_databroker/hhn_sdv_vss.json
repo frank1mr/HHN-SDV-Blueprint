@@ -10,6 +10,59 @@
                 "isWishlist": false,
                 "id": "691d9602d327158aa9725df2",
                 "children": {
+                    "PD": {
+                        "type": "branch",
+                        "children": {
+                            "Front": {
+                                "type": "branch",
+                                "children": {
+                                    "Accuracy": {
+                                        "apiName": "Vehicle.ADAS.PD.Front.Accuracy",
+                                        "unit": "percent",
+                                        "type": "sensor",
+                                        "datatype": "float",
+                                        "description": "Accuracy is calculated as the proportion of correctly classified results (true positives + true negatives) to the total number of cases.",
+                                        "isWishlist": false,
+                                        "custom_properties": {
+                                            "Max": {
+                                                "name": "Max",
+                                                "value": 100,
+                                                "type": "number"
+                                            }
+                                        },
+                                        "id": "698609c52a20c8f65e1c2818",
+                                        "name": "Vehicle.ADAS.PD.Front.Accuracy"
+                                    },
+                                    "Distance": {
+                                        "apiName": "Vehicle.ADAS.PD.Front.Distance",
+                                        "unit": "cm",
+                                        "type": "sensor",
+                                        "datatype": "double",
+                                        "description": "Reads current distance of person detected.",
+                                        "isWishlist": false,
+                                        "id": "698608922a20c8f65e1c257e",
+                                        "name": "Vehicle.ADAS.PD.Front.Distance"
+                                    },
+                                    "IsActive": {
+                                        "apiName": "Vehicle.ADAS.PD.Front.IsActive",
+                                        "unit": null,
+                                        "type": "sensor",
+                                        "datatype": "boolean",
+                                        "description": "Indicator if Person Detection is active.",
+                                        "isWishlist": false,
+                                        "id": "698608542a20c8f65e1c24d9",
+                                        "name": "Vehicle.ADAS.PD.Front.IsActive"
+                                    }
+                                },
+                                "name": "Vehicle.ADAS.PD.Front",
+                                "id": "49d5bb65e79fe0b89a2fd41f",
+                                "description": "nan"
+                            }
+                        },
+                        "name": "Vehicle.ADAS.PD",
+                        "id": "c5296f862c4f1ad00329a939",
+                        "description": "nan"
+                    },
                     "PDC": {
                         "apiName": "Vehicle.ADAS.PDC",
                         "unit": null,
@@ -257,11 +310,85 @@
                                     }
                                 },
                                 "name": "Vehicle.Body.Lights.Parking",
-                                "id": "02653aa24ed24825f46138eb",
+                                "id": "e54091508d742ee145ebcf01",
                                 "description": "nan"
                             }
                         },
                         "name": "Vehicle.Body.Lights"
+                    },
+                    "Raindetection": {
+                        "type": "branch",
+                        "children": {
+                            "Intensity": {
+                                "apiName": "Vehicle.Body.Raindetection.Intensity",
+                                "unit": "percent",
+                                "type": "sensor",
+                                "datatype": "uint8",
+                                "description": "Rain intensity. 0 = Dry, No Rain. 100 = Covered.",
+                                "isWishlist": false,
+                                "custom_properties": {
+                                    "Max": {
+                                        "name": "Max",
+                                        "value": 100,
+                                        "type": "number"
+                                    }
+                                },
+                                "id": "698608f02a20c8f65e1c2628",
+                                "name": "Vehicle.Body.Raindetection.Intensity"
+                            }
+                        },
+                        "name": "Vehicle.Body.Raindetection",
+                        "id": "71fb6819d0e5a9a37212cc11",
+                        "description": "nan"
+                    },
+                    "Windshield": {
+                        "type": "branch",
+                        "children": {
+                            "Front": {
+                                "type": "branch",
+                                "children": {
+                                    "Wiping": {
+                                        "type": "branch",
+                                        "children": {
+                                            "System": {
+                                                "type": "branch",
+                                                "children": {
+                                                    "Frequency": {
+                                                        "apiName": "Vehicle.Body.Windshield.Front.Wiping.System.Frequency",
+                                                        "unit": "cpm",
+                                                        "type": "actuator",
+                                                        "datatype": "uint8",
+                                                        "description": "Wiping frequency/speed, measured in cycles per minute. The signal concerns the actual speed of the wiper blades when moving. Intervals/pauses are excluded, i.e. the value corresponds to the number of cycles that would be completed in 1 minute if wiping permanently over default range.",
+                                                        "isWishlist": false,
+                                                        "custom_properties": {
+                                                            "Comment": {
+                                                                "name": "Comment",
+                                                                "value": " Examples - 0 = Wipers stopped, 80 = Wipers doing 80 cycles per minute (in WIPE mode).",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "id": "698609462a20c8f65e1c26ef",
+                                                        "name": "Vehicle.Body.Windshield.Front.Wiping.System.Frequency"
+                                                    }
+                                                },
+                                                "name": "Vehicle.Body.Windshield.Front.Wiping.System",
+                                                "id": "2ec22bcedfd530e7a5a8e700",
+                                                "description": "nan"
+                                            }
+                                        },
+                                        "name": "Vehicle.Body.Windshield.Front.Wiping",
+                                        "id": "0661c8ee936a6b5ca61ae2a8",
+                                        "description": "nan"
+                                    }
+                                },
+                                "name": "Vehicle.Body.Windshield.Front",
+                                "id": "d24c7ba0c824b2ca876ce312",
+                                "description": "nan"
+                            }
+                        },
+                        "name": "Vehicle.Body.Windshield",
+                        "id": "a27f864a8825569dcc257ca9",
+                        "description": "nan"
                     }
                 },
                 "name": "Vehicle.Body"
@@ -418,7 +545,7 @@
                             }
                         },
                         "name": "Vehicle.Cabin.RearShade",
-                        "id": "f1335dceea605933716ded92",
+                        "id": "9d24976f0f870d84513f90e0",
                         "description": "nan"
                     }
                 },
@@ -432,6 +559,34 @@
                 "isWishlist": false,
                 "id": "6926b2c0d327158aa9747b22",
                 "children": {
+                    "FuelSystem": {
+                        "type": "branch",
+                        "children": {
+                            "Range": {
+                                "apiName": "Vehicle.Powertrain.FuelSystem.Range",
+                                "unit": "m",
+                                "type": "sensor",
+                                "datatype": "uint32",
+                                "description": "Remaining range in meters using only liquid fuel.",
+                                "isWishlist": false,
+                                "id": "698608192a20c8f65e1c2443",
+                                "name": "Vehicle.Powertrain.FuelSystem.Range"
+                            },
+                            "RelativeLevel": {
+                                "apiName": "Vehicle.Powertrain.FuelSystem.RelativeLevel",
+                                "unit": "km",
+                                "type": "sensor",
+                                "datatype": "float",
+                                "description": " Odometer reading, total distance traveled during the lifetime of the vehicle.",
+                                "isWishlist": false,
+                                "id": "698607f62a20c8f65e1c23b0",
+                                "name": "Vehicle.Powertrain.FuelSystem.RelativeLevel"
+                            }
+                        },
+                        "name": "Vehicle.Powertrain.FuelSystem",
+                        "id": "9c131e1094c45581a9301314",
+                        "description": "nan"
+                    },
                     "Transmission": {
                         "apiName": "Vehicle.Powertrain.Transmission",
                         "unit": null,
@@ -485,9 +640,19 @@
                 "isWishlist": false,
                 "id": "691da5f8d327158aa9726421",
                 "name": "Vehicle.Speed"
+            },
+            "TraveledDistance": {
+                "apiName": "Vehicle.TraveledDistance",
+                "unit": "km",
+                "type": "sensor",
+                "datatype": "float",
+                "description": " Odometer reading, total distance traveled during the lifetime of the vehicle.",
+                "isWishlist": false,
+                "id": "698607d02a20c8f65e1c235c",
+                "name": "Vehicle.TraveledDistance"
             }
         },
         "name": "Vehicle",
-        "id": "a39a23b616d404221ae6b023"
+        "id": "8f1be6c596d6bb5df3a04724"
     }
 }

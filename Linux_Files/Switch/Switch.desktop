@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=SDV Switch, Runtime oder Databroker
+Terminal=false
+Icon=utilities-terminal
+Exec=gnome-terminal -- bash -lc '~/bin/sdv-switch.sh toggle; echo; read -p "Enter zum Schließen"'
+Categories=Development;

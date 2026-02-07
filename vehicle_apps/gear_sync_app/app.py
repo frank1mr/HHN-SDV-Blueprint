@@ -1,114 +1,64 @@
-import asyncio
-import signal
+import time
 
-# Async gRPC client from the KUKSA Python SDK
-from kuksa_client.grpc.aio import VSSClient
-# Datapoint wraps a value together with metadata for GET / SET operations
 from kuksa_client.grpc import Datapoint
+from kuksa_client.grpc import DataEntry
+from kuksa_client.grpc import DataType
+from kuksa_client.grpc import EntryUpdate
+from kuksa_client.grpc import Field
+from kuksa_client.grpc import Metadata
+from kuksa_client.grpc import VSSClient
 
-# VSS signal paths
-CURRENT_GEAR_PATH = "Vehicle.Powertrain.Transmission.CurrentGear"
-SELECTED_GEAR_PATH = "Vehicle.Powertrain.Transmission.SelectedGear"
 
+Sensor_CG = "Vehicle.Powertrain.Transmission.CurrentGear"
+Actuator_SG = "Vehicle.Powertrain.Transmission.SelectedGear"
 
-async def gear_sync(client: VSSClient) -> None:
-    """
-    Synchronizes SelectedGear with CurrentGear
+def read_Current_Gear():
+    CurrentGear = client.get_current_values([Sensor_CG])
+    current_gear_value = CurrentGear[Sensor_CG].value
 
-    Workflow:
-    - Subscribe to CurrentGear
-    - React to every update
-    - Read the current value of SelectedGear
-    - Update SelectedGear if the values differ
-    """
+    # Falls noch kein Wert verfügbar ist
+    if current_gear_value is None:
+        return None
 
-    # Endless async loop
-    # Yields whenever CurrentGear changes in the Databroker
-    async for updates in client.subscribe_current_values([CURRENT_GEAR_PATH]):
+    return current_gear_value
 
-        # Extract the Datapoint for CurrentGear from the update map
-        dp = updates.get(CURRENT_GEAR_PATH)
+def read_Selected_Gear():
+    SelectedGear = client.get_current_values([Actuator_SG])
+    selected_gear_value = SelectedGear[Actuator_SG].value
 
-        # Guard against invalid updates
-        # dp may be None or dp.value may be None
-        if dp is None or dp.value is None:
+    # Falls noch kein Wert verfügbar ist
+    if selected_gear_value is None:
+        return None
+
+    return selected_gear_value
+
+# Aufbau der Verbindung zum KUKSA Databroker
+with VSSClient("127.0.0.1", 55555) as client:
+    while True:
+
+        # Aktuellen Ist- und Soll-Gang lesen
+        CG = read_Current_Gear()
+        SG = read_Selected_Gear()
+
+        # Abbruch der Iteration, falls kein Istwert vorhanden ist
+        if CG is None:
+            time.sleep(0.5)
             continue
 
-        # Current gear value reported by the vehicle
-        current_gear = dp.value
-        print(f"Current gear received: {current_gear}")
+        # Schreiben des Ist-Gangs auf das Aktor-Signal SelectedGear
+        updates = (
+            EntryUpdate(
+                DataEntry(
+                    Actuator_SG,
+                    value=Datapoint(value=CG),
+                    metadata=Metadata(data_type=DataType.INT8)
+                ),
+                (Field.VALUE,)
+            ),
+        )
 
-        # Explicitly read the current SelectedGear from the Databroker
-        # get_current_values returns a mapping: {VSS path -> Datapoint}
-        selected_map = await client.get_current_values([SELECTED_GEAR_PATH])
+        # Übertragen des Updates an den Databroker
+        client.set(updates=updates)
 
-        # Extract the Datapoint for SelectedGear
-        selected_dp = selected_map.get(SELECTED_GEAR_PATH)
-
-        # If SelectedGear has never been set, its value may be None
-        selected_gear = None if selected_dp is None else selected_dp.value
-
-        # Only update if the values are different
-        # This prevents feedback loops and unnecessary SET operations
-        if current_gear != selected_gear:
-
-            # Write SelectedGear as a target value
-            # Target values are typically consumed by actuators
-            await client.set_target_values(
-                {SELECTED_GEAR_PATH: Datapoint(value=current_gear)}
-            )
-
-            print(f"Updated selected gear to: {current_gear}")
-
-
-async def main() -> None:
-    """
-    Application entry point
-
-    - Connects to the Databroker
-    - Starts the gear synchronization task
-    - Shuts down cleanly on SIGINT / SIGTERM
-    """
-
-    # Variant B: Script runs inside Docker Compose
-    # Databroker service is reachable via its service name
-    host = "127.0.0.1"
-    port = 55555
-
-    # Event used to trigger a clean shutdown
-    stop_event = asyncio.Event()
-
-    # Get the current asyncio event loop
-    loop = asyncio.get_running_loop()
-
-    # Register signal handlers for graceful shutdown
-    # Allows clean exit on Ctrl+C or docker stop
-    for sig in (signal.SIGINT, signal.SIGTERM):
-        try:
-            loop.add_signal_handler(sig, stop_event.set)
-        except NotImplementedError:
-            # Fallback for platforms with limited signal support
-            pass
-
-    # Open an asynchronous connection to the Databroker
-    async with VSSClient(host, port) as client:
-
-        # Start the gear synchronization as a background task
-        task = asyncio.create_task(gear_sync(client))
-
-        # Block until a shutdown signal is received
-        await stop_event.wait()
-
-        # Cancel the background task
-        task.cancel()
-
-        # Wait for the task to exit cleanly
-        try:
-            await task
-        except asyncio.CancelledError:
-            pass
-
-
-# Script entry point
-if __name__ == "__main__":
-    asyncio.run(main())
+        # Zykluszeit der Anwendung
+        time.sleep(2)

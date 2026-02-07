@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=SDV Runtime CLI
+Terminal=false
+Icon=utilities-terminal
+Exec=gnome-terminal -- bash -lc 'docker run -it --name kuksa-cli --rm --network host \ghcr.io/eclipse-kuksa/kuksa-databroker-cli:main --server 127.0.0.1:55555; exec bash'
+Categories=Development;
