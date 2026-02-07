@@ -15,7 +15,7 @@ The stack connects natively to digital.auto through the SDV Runtime, enabling di
 
 ## Software Architecture Overview
 
-<img width="1924" height="1414" alt="image" src="sonstige Dateien/Bilder/Architektur.png" />
+<img width="1924" height="1414" alt="image" src="sonstige Dateien/Software_Stack.svg" />
 
 The system architecture combines cloud-based SDV tooling with real automotive hardware to form a complete end-to-end Software-Defined Vehicle environment. Development, deployment, and runtime execution are tightly integrated through the digital.auto ecosystem and the Eclipse SDV stack.
 
