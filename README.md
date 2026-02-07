@@ -235,9 +235,13 @@ If one or more containers are missing or parts of the demonstrator do not functi
 
 ## CAN-UDP Bridge:
 
+    docker build -t can_udp_bridge ./
+
     docker run -d --name can_udp_bridge --restart always --network host can_udp_bridge
 
 ## Gear Sync App:
+
+    docker build -t gear_sync_app ./
 
     docker run -d --name gear_sync_app --restart always --network host gear_sync_app
 
