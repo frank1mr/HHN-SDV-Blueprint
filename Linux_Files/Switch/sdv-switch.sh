@@ -42,7 +42,7 @@ start_databroker() {
   if exists "$DATABROKER_NAME"; then
     docker start "$DATABROKER_NAME" >/dev/null
   else
-    docker run -d --name "$DATABROKER_NAME" --restart always --network host \
+    docker run -d --name "$DATABROKER_NAME" --network host \
       -v "$VSS_DIR:/vss" \
       "$DATABROKER_IMAGE" --insecure --vss "$VSS_FILE_STANDALONE" >/dev/null
   fi
