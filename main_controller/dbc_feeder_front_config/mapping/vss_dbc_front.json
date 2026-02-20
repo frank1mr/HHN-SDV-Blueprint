@@ -23,14 +23,6 @@
                                 "vss2dbc": {
                                     "signal": "SelectedGear"
                                 }
-                            },
-                            "GearCount": {
-                                "datatype": "int8",
-                                "type": "attribute",
-                                "dbc2vss": {
-                                    "interval_ms": 100,
-                                    "signal": "GearCount"
-                                }
                             }
                         },
                         "description": "Transmission state and configuration.",

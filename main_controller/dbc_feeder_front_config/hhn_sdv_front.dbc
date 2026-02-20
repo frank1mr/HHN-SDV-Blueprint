@@ -33,13 +33,13 @@ SG_MUL_VAL_
 BS_:
 
 
-BU_: FrontLightLeft FrontLightRight DriverSideDoor PassengerSideDoor AmbientLights ZoneControllerFront GearShifter
+BU_: FrontLightLeft FrontLightRight DriverSideDoor PassengerSideDoor AmbientLights ZoneControllerFront ZoneControllerRear GearShifter KeylessEntry ZoneController
 
-BO_ 192 GearShifter: 3 GearShifter
- SG_ CurrentGear  : 0|8@1- (1,0) [-128|127] "" ZoneControllerFront
- SG_ SelectedGear : 8|8@1- (1,0) [-128|127] "" ZoneControllerFront
- SG_ GearCount    : 16|8@1- (1,0) [-128|127] "" ZoneControllerFront
+BO_ 225 SelectedGear: 1 GearShifter
+ SG_ SelectedGear : 0|8@1- (1,0) [-128|127] "" ZoneControllerFront
 
+BO_ 224 CurrentGear: 1 ZoneControllerFront
+ SG_ CurrentGear  : 0|8@1- (1,0) [-128|127] "" GearShifter
 
 BO_ 256 FrontLights: 6 ZoneController
  SG_ LightsOn : 0|1@1+ (1,0) [0|1] "" FrontLightLeft,FrontLightRight
@@ -48,19 +48,15 @@ BO_ 256 FrontLights: 6 ZoneController
  SG_ DirectionIndicatorRightOn : 24|1@1+ (1,0) [0|1] "" FrontLightRight
  SG_ DirectionIndicatorLeftOn : 32|1@1+ (1,0) [0|1] "" FrontLightLeft
  SG_ HazardOn : 40|1@1+ (1,0) [0|1] "" FrontLightLeft,FrontLightRight
- 
- BO_ 128 Lock: 2 KeylessEntry
+
+BO_ 128 Lock: 2 KeylessEntry
  SG_ VehicleDoorLocked : 0|1@1+ (1,0) [0|1] "" ZoneControllerRear
 
 BO_ 80 DriverSideDoorSensor: 1 DriverSideDoor
- SG_ DriverSideDoorOpen : 0|1@1+ (1,0) [0|1] "" PassengerSideDoor,ZoneControllerFront 
+ SG_ DriverSideDoorOpen : 0|1@1+ (1,0) [0|1] "" PassengerSideDoor,ZoneControllerFront
 
 BO_ 96 PassengerSideDoorSensor: 1 PassengerSideDoor
  SG_ PassengerSideDoorOpen : 0|1@1+ (1,0) [0|1] "" DriverSideDoor,ZoneControllerFront
- 
-VAL_ 192 GearCount -1 "CVT";
-VAL_ 192 SelectedGear 126 "PARK" 127 "DRIVE" 0 "NEUTRAL";
-VAL_ 192 CurrentGear  0 "NEUTRAL";
 
 VAL_ 256 LightsOn 0 "OFF" 1 "ON";
 VAL_ 256 LowBeamOn 0 "OFF" 1 "ON";
@@ -74,5 +70,3 @@ VAL_ 128 VehicleDoorLocked 0 "UNLOCKED" 1 "LOCKED";
 VAL_ 80 DriverSideDoorOpen 0 "CLOSED" 1 "OPEN";
 
 VAL_ 96 PassengerSideDoorOpen 0 "CLOSED" 1 "OPEN";
-
-
